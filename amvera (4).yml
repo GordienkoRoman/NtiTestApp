@@ -7,6 +7,6 @@ build:
   artifacts:
     build/libs/*.jar: /
 run:
-  jarName: ntitestru.ntitest-all.jar
+  jarName: NtiTestApp-all
   persistenceMount: /data
   containerPort: 80
