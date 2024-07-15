@@ -1,9 +1,10 @@
 FROM maven:3.8.3-openjdk-11-slim AS build
-WORKDIR /app
+WORKDIR /root
 COPY . .
-RUN mvn clean package -DskipTests
+RUN ./gradlew build
 
 FROM openjdk:11-jre-slim
+WORKDIR /root
 COPY --from=build /app/target/NtiTestApp-all.jar /NtiTestApp-all.jar
 EXPOSE 8080
-CMD ["java", "-jar", "/NtiTestApp-all.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","./app.jar"]

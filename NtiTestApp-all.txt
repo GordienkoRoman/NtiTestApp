@@ -1,0 +1,13 @@
+FROM openjdk:11-jre-slim
+
+# Set the working directory for your app
+WORKDIR /usr/src/app
+
+# Copy the JAR file into the container at the working directory
+COPY target/your-app-name.jar app.jar
+
+# Make port 8080 available to the world outside this container
+EXPOSE 8080
+
+# Run the JAR file using the java command
+CMD ["java", "-jar", "app.jar"]
