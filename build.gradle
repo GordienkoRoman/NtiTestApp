@@ -1,31 +1,31 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-
-    dependencies {
-    }
-}
 plugins {
-
+    id 'java'
+    id 'application'
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+group = 'com.example'
+version = '1.0.0'
+
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
 }
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+application {
+    mainClassName = 'com.example.App'  // Replace with your main class
+}
+
 jar {
     manifest {
         attributes(
                 'Main-Class': 'com.example.App'  // Replace with your main class
         )
     }
-}
-ext {
-    sdk_version = 33
-
-    kotlin_version = "2.6.1"
-    retrofit_version = "2.9.0"
-    fragment_version = "1.5.0"
-    dagger_version = "2.44.2"
-    nav_version = "2.5.3"
-    livedata_version = "2.6.1"
-    room_version = "2.5.1"
 }
