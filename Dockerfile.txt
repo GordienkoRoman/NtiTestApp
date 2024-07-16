@@ -4,10 +4,10 @@ FROM openjdk:11-jre-slim
 WORKDIR /usr/src/app
 
 # Copy the JAR file into the container at the working directory
-COPY target/your-app-name.jar app.jar
+COPY target/NtiTestApp-1.0.0.jar NtiTestApp-1.0.0.jar
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
 
 # Run the JAR file using the java command
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "NtiTestApp-1.0.0.jar"]
